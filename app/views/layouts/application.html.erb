@@ -18,7 +18,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Flixter</a>
+      
+      <a class="navbar-brand" <%= link_to 'Flixter', root_path %>></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,19 +40,25 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
+        <li><a href="#">LInk</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <% if notice.present? %>
-  <p class="alert alert-info alert-dismissible col-xs-10 col-xs-offset-1">
+  <p class="alert alert-info alert-dismissible col-xs-10 col-xs-offset-1 text-center">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <%= notice %></p>
 <% end %>
 <% if alert.present? %>
-  <p class="alert alert-danger alert-dismissible col-xs-10 col-xs-offset-1">
+  <p class="alert alert-danger alert-dismissible col-xs-10 col-xs-offset-1 text-center">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <%= alert %>
   </p>
