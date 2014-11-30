@@ -22,6 +22,10 @@ body {
 	font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
+.clr {
+	clear: both;
+}
+
 .hero {
 	background: url('hero.jpg') no-repeat center center fixed; 
  	-webkit-background-size: cover;
